@@ -1,0 +1,4 @@
+B-word
+E-word
+S-word
+M-word

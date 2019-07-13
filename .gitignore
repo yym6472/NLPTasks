@@ -1,0 +1,6 @@
+.vscode/
+__pycache__/
+
+model_state_epoch_*.th
+training_state_epoch_*.th
+source*.txt

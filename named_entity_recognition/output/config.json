@@ -1,0 +1,46 @@
+{
+    "random_seed": 1,
+    "numpy_seed": 1,
+    "pytorch_seed": 1,
+    "train_data_path": "./data/train.txt",
+    "validation_data_path": "./data/valid.txt",
+    "dataset_reader": "ner_dataset_reader",
+    "model": {
+        "type": "ner_model",
+        "word_embeddings": {
+            "type": "basic",
+            "tokens": {
+                "type": "embedding",
+                "embedding_dim": 256
+            }
+        },
+        "encoder": {
+            "type": "lstm",
+            "input_size": 256,
+            "hidden_size": 128,
+            "bidirectional": true,
+            "batch_first": true
+        }
+    },
+    "iterator": {
+        "type": "bucket",
+        "batch_size": 64,
+        "sorting_keys": [
+            [
+                "sentence",
+                "num_tokens"
+            ]
+        ]
+    },
+    "trainer": {
+        "num_epochs": 100,
+        "optimizer": {
+            "type": "adam",
+            "lr": 0.001
+        },
+        "patience": 10,
+        "cuda_device": 1,
+        "grad_clipping": 5.0,
+        "validation_metric": "+f1"
+    }
+}
