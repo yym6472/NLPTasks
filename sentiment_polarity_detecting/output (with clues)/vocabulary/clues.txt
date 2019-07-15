@@ -1,0 +1,5 @@
+neutral
+strong_pos
+strong_neg
+weak_pos
+weak_neg
